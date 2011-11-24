@@ -20,7 +20,9 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author rocastro
  */
 public class Window extends javax.swing.JFrame {
-
+    
+    private static Calculadora calc;
+    
     /** Creates new form Window */
     public Window() {
         initComponents();
@@ -346,11 +348,11 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_num7ActionPerformed
 
     private void num8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num8ActionPerformed
-        textVisor.setText(textVisor.getText()+"9");
+        textVisor.setText(textVisor.getText()+"8");
     }//GEN-LAST:event_num8ActionPerformed
 
     private void num9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num9ActionPerformed
-        textVisor.setText(textVisor.getText()+"8");
+        textVisor.setText(textVisor.getText()+"9");
     }//GEN-LAST:event_num9ActionPerformed
 
     private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
@@ -378,7 +380,10 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_num1ActionPerformed
 
     private void botonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIgualActionPerformed
-        // TODO add your handling code here:
+        calc.setOperando(textVisor.getText());
+        String result = calc.getResultado(textVisor.getText());
+        System.out.println(result);
+        textVisor.setText(result);
     }//GEN-LAST:event_botonIgualActionPerformed
 
     private void num0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num0ActionPerformed
@@ -392,11 +397,12 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_numPuntoActionPerformed
 
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
-        // TODO add your handling code here:
+        textVisor.setText("");
     }//GEN-LAST:event_botonBorrarActionPerformed
 
     private void botonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClearActionPerformed
-        // TODO add your handling code here:
+        textVisor.setText("");
+        calc.clearPila();
     }//GEN-LAST:event_botonClearActionPerformed
 
     private void botonMemoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMemoriaActionPerformed
@@ -404,23 +410,32 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMemoriaActionPerformed
 
     private void botonNegacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNegacionActionPerformed
-        // TODO add your handling code here:
+        calc.setOperando(textVisor.getText());
+        textVisor.setText(calc.getNegacion());
     }//GEN-LAST:event_botonNegacionActionPerformed
 
     private void botonDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDivisionActionPerformed
-        // TODO add your handling code here:
+        calc.setOperando(textVisor.getText());
+        textVisor.setText("");
+        calc.setDivision();
     }//GEN-LAST:event_botonDivisionActionPerformed
 
     private void botonRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRestaActionPerformed
-        // TODO add your handling code here:
+        calc.setOperando(textVisor.getText());
+        textVisor.setText("");
+        calc.setResta();
     }//GEN-LAST:event_botonRestaActionPerformed
 
     private void botonMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMultiplicacionActionPerformed
-        // TODO add your handling code here:
+        calc.setOperando(textVisor.getText());
+        textVisor.setText("");
+        calc.setMultiplicacion();
     }//GEN-LAST:event_botonMultiplicacionActionPerformed
 
     private void botonSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSumaActionPerformed
-        // TODO add your handling code here:
+        calc.setOperando(textVisor.getText());
+        textVisor.setText("");
+        calc.setSuma();
     }//GEN-LAST:event_botonSumaActionPerformed
     /**
      * Se valida que se ingrese solo numeros y retroceso
@@ -462,6 +477,7 @@ private void botonRetrocesoActionPerformed(java.awt.event.ActionEvent evt) {//GE
             // handle exception
         }
 
+        calc = new Calculadora();
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
