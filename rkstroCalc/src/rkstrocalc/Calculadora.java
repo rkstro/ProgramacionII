@@ -6,6 +6,8 @@ package rkstrocalc;
 
 import java.util.Stack;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -56,12 +58,15 @@ public class Calculadora {
                 r = a.multiply(b);
                 break;
             case 4: //Division
-                r = b.divide(a);
+                r = b.divide(a, 10, RoundingMode.HALF_EVEN);
                 break;
         }
         
         resultados.push(r.toString());
-        return r.toString();
+        DecimalFormat df = new DecimalFormat("###.#######");
+        
+        //return r.toString();
+        return df.format(Double.parseDouble(r.toString()));
     }
     
 }

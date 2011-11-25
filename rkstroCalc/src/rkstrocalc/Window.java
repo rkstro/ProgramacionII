@@ -63,9 +63,10 @@ public class Window extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocationByPlatform(true);
         setResizable(false);
 
-        textVisor.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        textVisor.setFont(new java.awt.Font("DejaVu Sans", 0, 18));
         textVisor.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         textVisor.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textVisor.setDragEnabled(true);
@@ -82,7 +83,7 @@ public class Window extends javax.swing.JFrame {
             }
         });
 
-        num7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        num7.setFont(new java.awt.Font("Tahoma", 0, 18));
         num7.setText("7");
         num7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +100,7 @@ public class Window extends javax.swing.JFrame {
             }
         });
 
-        num9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        num9.setFont(new java.awt.Font("Tahoma", 0, 18));
         num9.setText("9");
         num9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +140,7 @@ public class Window extends javax.swing.JFrame {
             }
         });
 
-        num3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        num3.setFont(new java.awt.Font("Tahoma", 0, 18));
         num3.setText("3");
         num3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +156,7 @@ public class Window extends javax.swing.JFrame {
             }
         });
 
-        botonIgual.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        botonIgual.setFont(new java.awt.Font("Tahoma", 0, 18));
         botonIgual.setText("=");
         botonIgual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +164,7 @@ public class Window extends javax.swing.JFrame {
             }
         });
 
-        num0.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        num0.setFont(new java.awt.Font("Tahoma", 0, 18));
         num0.setText("0");
         num0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +172,7 @@ public class Window extends javax.swing.JFrame {
             }
         });
 
-        numPunto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        numPunto.setFont(new java.awt.Font("Tahoma", 0, 18));
         numPunto.setText(".");
         numPunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
