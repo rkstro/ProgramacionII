@@ -62,7 +62,6 @@ public class Window extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocationByPlatform(true);
         setResizable(false);
 
@@ -381,10 +380,12 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_num1ActionPerformed
 
     private void botonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIgualActionPerformed
-        calc.setOperando(textVisor.getText());
-        String result = calc.getResultado(textVisor.getText());
-        System.out.println(result);
-        textVisor.setText(result);
+        if(textVisor.getText().length() != 0 && !textVisor.getText().isEmpty()){
+            calc.setOperando(textVisor.getText());
+            String result = calc.getResultadoBinary();
+            System.out.println(result);
+            textVisor.setText(result.replace(',', '.'));
+        }
     }//GEN-LAST:event_botonIgualActionPerformed
 
     private void num0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num0ActionPerformed
@@ -479,7 +480,7 @@ private void botonRetrocesoActionPerformed(java.awt.event.ActionEvent evt) {//GE
         }
 
         calc = new Calculadora();
-
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Window().setVisible(true);
